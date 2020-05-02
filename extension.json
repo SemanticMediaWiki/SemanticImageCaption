@@ -1,0 +1,47 @@
+{
+	"name": "SemanticImageCaption",
+	"version": "1.0.0-alpha",
+	"author": [
+       	"James Hong Kong",
+		"..."
+	],
+	"url": "https://github.com/SemanticMediaWiki/SemanticImageCaption/",
+	"descriptionmsg": "semantic-imagecaption-desc",
+	"namemsg": "semantic-imagecaption-name",
+	"license-name": "GPL-2.0-or-later",
+	"type": "semantic",
+	"requires": {
+		"MediaWiki": ">= 1.31",
+		"extensions": {
+			"SemanticMediaWiki": ">= 3.2"
+		}
+	},
+	"MessagesDirs": {
+		"SemanticImageCaption": [
+			"i18n"
+		]
+	},
+	"callback": "SemanticImageCaption::initExtension",
+	"ExtensionFunctions": [
+		"SemanticImageCaption::onExtensionFunction"
+	],
+	"Hooks": {
+		"ImageBeforeProduceHTML": [
+			"SMW\\ImageCaption\\Hooks::onImageBeforeProduceHTML"
+		],
+		"SMW::Schema::RegisterSchemaTypes": [
+			"SMW\\ImageCaption\\Hooks::onRegisterSchemaTypes"
+		]
+	},
+	"AutoloadNamespaces": {
+		"SMW\\ImageCaption\\": "src/"
+	},
+	"TestAutoloadNamespaces": {
+		"SMW\\ImageCaption\\Tests": "tests/phpunit"
+	},
+	"AutoloadClasses": {
+		"SemanticImageCaption": "SemanticImageCaption.php"
+	},
+	"load_composer_autoloader":true,
+	"manifest_version": 2
+}

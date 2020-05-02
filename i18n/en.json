@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"MWJames",
+			"Kghbln"
+		]
+	},
+	"semantic-imagecaption-name": "Semantic Image Caption",
+	"semantic-imagecaption-desc": "Semantic MediaWiki extension to support the generation of image captions from annotations.",
+	"semantic-imagecaption-rule-schema-description": "The schema type is to define a set of rules for how captions of images are retrieved and transformed and is provided by the [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Image_Caption Semantic Image Caption] extension.",
+	"semantic-imagecaption-figures": "<b>Figure $1:</b>"
+}

@@ -1,0 +1,178 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://www.semantic-mediawiki.org/wiki/Help:Schema/Type/IMAGECAPTION_RULE_SCHEMA",
+	"type": "object",
+	"title": "Image caption validation schema",
+	"required": [
+		"type",
+		"caption_rules"
+	],
+	"properties": {
+		"type": {
+			"$id": "#/properties/type",
+			"type": "string",
+			"enum": [
+				"IMAGECAPTION_RULE_SCHEMA"
+			],
+			"title": "Schema type",
+			"default": "IMAGECAPTION_RULE_SCHEMA"
+		},
+		"title_prefix": {
+			"$id": "#/properties/title_prefix",
+			"type": "string",
+			"enum": [
+				"Caption"
+			],
+			"title": "Title prefix"
+		},
+		"manifest_version": {
+			"$id": "#/properties/manifest_version",
+			"type": "number",
+			"title": "Manifest version",
+			"default": 1
+		},
+		"tags": {
+			"$id": "#/properties/tags",
+			"type": "array",
+			"title": "tags",
+			"default": null,
+			"items": {
+				"$id": "#/properties/tags/items",
+				"type": "string",
+				"title": "tags, keywords etc.",
+				"default": "",
+				"pattern": "^(.*)$"
+			}
+		},
+		"caption_rules": {
+			"$ref": "#/definitions/caption_rules"
+		}
+	},
+	"definitions": {
+		"caption_rules": {
+			"$id": "#/definitions/caption_rules",
+			"type": "object",
+			"title": "Definition of the caption rules",
+			"minProperties": 1,
+			"properties": {
+				"default_rule": {
+					"$ref": "#/definitions/default_rule"
+				}
+			},
+			"patternProperties": {
+				"^(?!default_rule)^[^\\s]*_rule": {
+					"$ref": "#/definitions/caption_rule"
+				}
+			},
+			"additionalProperties": false
+		},
+		"default_rule": {
+			"$id": "#/definitions/default_rule",
+			"type": "object",
+			"minProperties": 1,
+			"properties": {
+				"caption_property": {
+					"type": "string"
+				},
+				"max_length": {
+					"type": "integer"
+				},
+				"add_figures_reference": {
+					"type": "boolean"
+				},
+				"allow_caption_override": {
+					"type": "boolean"
+				}
+			},
+			"additionalProperties": false
+		},
+		"caption_rule": {
+			"$id": "#/definitions/caption_rule",
+			"type": "object",
+			"minProperties": 1,
+			"properties": {
+				"if": {
+					"$ref": "#/definitions/if"
+				},
+				"then": {
+					"$ref": "#/definitions/then"
+				}
+			},
+			"dependencies": {
+			   "if": ["then"]
+			},
+			"additionalProperties": false
+		},
+		"if": {
+			"$id": "#/definitions/if",
+			"type": "object",
+			"minProperties": 1,
+			"properties": {
+				"category": {
+					"oneOf": [
+						{
+							"type": "string"
+						},
+						{
+							"$ref": "#/definitions/condition_oneOf"
+						},
+						{
+							"$ref": "#/definitions/condition_allOf"
+						}
+					]
+				}
+			},
+			"additionalProperties": false
+		},
+		"then": {
+			"$id": "#/definitions/then",
+			"type": "object",
+			"minProperties": 1,
+			"properties": {
+				"caption_property": {
+					"type": "string"
+				},
+				"max_length": {
+					"type": "integer"
+				},
+				"add_figures_reference": {
+					"type": "boolean"
+				},
+				"allow_caption_override": {
+					"type": "boolean"
+				}
+			},
+			"additionalProperties": false
+		},
+		"condition_oneOf": {
+			"$id": "#/definitions/condition_oneOf",
+			"type": "object",
+			"minProperties": 1,
+			"properties": {
+				"oneOf": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"type": "string"
+					}
+				}
+			},
+			"additionalProperties": false
+		},
+		"condition_allOf": {
+			"$id": "#/definitions/condition_allOf",
+			"type": "object",
+			"minProperties": 1,
+			"properties": {
+				"allOf": {
+					"type": "array",
+					"minItems": 1,
+					"items": {
+						"type": "string"
+					}
+				}
+			},
+			"additionalProperties": false
+		}
+	}
+}

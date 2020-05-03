@@ -35,6 +35,11 @@ class ImageCaption {
 	private $ruleFinder;
 
 	/**
+	 * @var Rule
+	 */
+	private $rule;
+
+	/**
 	 * @since 1.0
 	 *
 	 * @param Store $store
@@ -94,17 +99,17 @@ class ImageCaption {
 			$categories[] = $dataItem->getDBKey();
 		}
 
-		$rule = $this->ruleFinder->findRule( $categories );
+		$this->rule = $this->ruleFinder->findRule( $categories );
 
-		if ( $rule->isEmpty() ) {
+		if ( $this->rule->isEmpty() ) {
 			return '';
 		}
 
-		if ( $caption !== '' && !$rule->then( 'allow_caption_override', false ) ) {
+		if ( $caption !== '' && !$this->get( 'allow_caption_override', false ) ) {
 			return '';
 		}
 
-		if ( ( $property = $rule->then( 'caption_property', '' ) ) === '' ) {
+		if ( ( $property = $this->get( 'caption_property', '' ) ) === '' ) {
 			return '';
 		}
 
@@ -118,7 +123,7 @@ class ImageCaption {
 		);
 
 		$text = '';
-		$maxLength = $rule->then( 'max_length', 200 );
+		$maxLength = $this->get( 'max_length', 200 );
 
 		if ( $dataItems === [] ) {
 			return '';
@@ -144,7 +149,7 @@ class ImageCaption {
 			$text = Normalizer::reduceLengthTo( $text, $maxLength ) . ' …';
 		}
 
-		if ( $rule->then( 'add_figures_reference', false ) ) {
+		if ( $this->get( 'add_figures_reference', false ) ) {
 			$text = wfMessage( 'semantic-imagecaption-figures', $target->semanticimagecaptioncount )->parse() . "&nbsp;$text";
 		}
 
@@ -171,6 +176,19 @@ class ImageCaption {
 		}
 
 		return $text;
+	}
+
+	private function get( $key, $default ) {
+
+		if ( $this->rule->has( "then.$key" ) ) {
+			return $this->rule->then( $key, $default );
+		}
+
+		if ( $this->rule->has( "$key" ) ) {
+			return $this->rule->get( $key, $default );
+		}
+
+		return $default;
 	}
 
 }

@@ -47,11 +47,20 @@ class ImageCaptionTest extends \PHPUnit_Framework_TestCase {
 			->getMock();
 
 		$rule->expects( $this->at( 1 ) )
+			->method( 'has' )
+			->with( $this->stringContains( 'then.caption_property' ) )
+			->will( $this->returnValue( true ) );
+
+		$rule->expects( $this->at( 2 ) )
 			->method( 'then' )
 			->with( $this->stringContains( 'caption_property' ) )
 			->will( $this->returnValue( 'Foo' ) );
 
-		$rule->expects( $this->at( 2 ) )
+		$rule->expects( $this->at( 3 ) )
+			->method( 'has' )
+			->will( $this->returnValue( true ) );
+
+		$rule->expects( $this->at( 4 ) )
 			->method( 'then' )
 			->with( $this->stringContains( 'max_length' ) );
 
@@ -101,6 +110,11 @@ class ImageCaptionTest extends \PHPUnit_Framework_TestCase {
 			->getMock();
 
 		$rule->expects( $this->at( 1 ) )
+			->method( 'has' )
+			->with( $this->stringContains( 'then.allow_caption_override' ) )
+			->will( $this->returnValue( true ) );
+
+		$rule->expects( $this->at( 2 ) )
 			->method( 'then' )
 			->with( $this->stringContains( 'allow_caption_override' ) )
 			->will( $this->returnValue( false ) );

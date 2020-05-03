@@ -61,6 +61,10 @@ class HooksTest extends \PHPUnit_Framework_TestCase {
 			->getMock();
 
 		$parser->expects( $this->any() )
+			->method( 'getTitle' )
+			->will( $this->returnValue( $title ) );
+
+		$parser->expects( $this->any() )
 			->method( 'getOptions' )
 			->will( $this->returnValue( $parserOptions ) );
 

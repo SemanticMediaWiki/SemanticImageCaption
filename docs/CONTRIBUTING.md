@@ -1,4 +1,4 @@
-If you would like to make a contribution to [Semantic Approved Revs][sar] (a.k.a. SAR), please ensure that pull requests are based on the current master.
+If you would like to make a contribution to [Semantic Image Caption][sic] (a.k.a. SIC), please ensure that pull requests are based on the current master.
 
 In order to swiftly coordinate a contribution, the following should be provided:
 - Definition that complies with the existing `json` file
@@ -11,6 +11,6 @@ For a description on how to write and run PHPUnit test, please consult the [manu
 
 If you report an issue, please ensure to use the current master (this helps to verify that the problem still persists and isn't solved already) and describe your environment (SMW, MW version etc.) together with a [stack trace][stack-trace] and a clear description on how to reproduce it.
 
-[sar]: https://github.com/SemanticMediaWiki/\SemanticApprovedRevs
+[sic]: https://github.com/SemanticMediaWiki/SemanticImageCaption
 [mw-testing]: https://www.mediawiki.org/wiki/Manual:PHP_unit_testing
 [stack-trace]: https://semantic-mediawiki.org/wiki/Stack_trace

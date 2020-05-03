@@ -8,7 +8,7 @@
 		"Wiki",
 		"MediaWiki"
 	],
-	"homepage": "https://www.mediawiki.org/wiki/Extension:SemanticImageCaption",
+	"homepage": "https://www.mediawiki.org/wiki/Extension:Semantic_Image_Caption",
 	"license": "GPL-2.0-or-later",
 	"authors": [
 		{
@@ -21,7 +21,7 @@
 		"email": "semediawiki-user@lists.sourceforge.net",
 		"issues": "https://github.com/SemanticMediaWiki/SemanticImageCaption/issues",
 		"forum": "https://www.semantic-mediawiki.org/wiki/semantic-mediawiki.org_talk:Community_portal",
-		"wiki": "https://www.semantic-mediawiki.org/wiki/",
+		"wiki": "https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Image_Caption",
 		"source": "https://github.com/SemanticMediaWiki/SemanticImageCaption"
 	},
 	"require": {

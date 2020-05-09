@@ -2,7 +2,8 @@
 
 namespace SMW\ImageCaption;
 
-use SMW\Schema\SchemaFactory;
+use SMW\Schema\SchemaFilterFactory;
+use SMW\Schema\SchemaFinder;
 use SMW\Schema\SchemaFilter;
 use SMW\Schema\Rule;
 use SMW\Schema\CompartmentIterator;
@@ -16,17 +17,24 @@ use SMW\Schema\CompartmentIterator;
 class RuleFinder {
 
 	/**
-	 * @var SchemaFactory
+	 * @var SchemaFinder
 	 */
-	private $schemaFactory;
+	private $schemaFinder;
+
+	/**
+	 * @var SchemaFilterFactory
+	 */
+	private $schemaFilterFactory;
 
 	/**
 	 * @since 1.0
 	 *
-	 * @param SchemaFactory $schemaFactory
+	 * @param SchemaFinder $schemaFinder
+	 * @param SchemaFilterFactory $schemaFilterFactory
 	 */
-	public function __construct( SchemaFactory $schemaFactory ) {
-		$this->schemaFactory = $schemaFactory;
+	public function __construct( SchemaFinder $schemaFinder, SchemaFilterFactory $schemaFilterFactory ) {
+		$this->schemaFinder = $schemaFinder;
+		$this->schemaFilterFactory = $schemaFilterFactory;
 	}
 
 	/**
@@ -38,7 +46,7 @@ class RuleFinder {
 	 */
 	public function findRule( array $categories = [] ) : Rule {
 
-		$schemaList = $this->schemaFactory->newSchemaFinder()->getSchemaListByType(
+		$schemaList = $this->schemaFinder->getSchemaListByType(
 			ImageCaption::SCHEMA_TYPE
 		);
 
@@ -47,7 +55,7 @@ class RuleFinder {
 			CompartmentIterator::RULE_COMPARTMENT
 		);
 
-		$categoryFilter = $this->schemaFactory->newSchemaFilterFactory()->newCategoryFilter(
+		$categoryFilter = $this->schemaFilterFactory->newCategoryFilter(
 			$categories
 		);
 

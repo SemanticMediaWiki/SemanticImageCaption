@@ -1,0 +1,78 @@
+{
+	"description": "Test generation of image caption from category/language dependent rules",
+	"setup": [
+		{
+			"namespace": "SMW_NS_SCHEMA",
+			"page": "Caption:TestRules01",
+			"contents": {
+				"import-from": "/../Fixtures/imagecaption.rules.json"
+			}
+		},
+		{
+			"namespace": "SMW_NS_PROPERTY",
+			"page": "Language dependent caption",
+			"contents": "[[Has type::Monolingual text]]"
+		},
+		{
+			"namespace": "NS_FILE",
+			"page": "Image-02.png",
+			"contents": {
+				"upload": {
+					"file" : "/../Fixtures/image-upload-new-88.png",
+					"text" : "[[Category:Language dependent caption category]] [[Language dependent caption::test from {{PAGENAME}}-EN@en]] [[Language dependent caption::test from {{PAGENAME}}-FR@fr]] [[Language dependent caption::テスト {{PAGENAME}}-JA@ja]]"
+				}
+			}
+		},
+		{
+			"namespace": "NS_MAIN",
+			"page": "SIC:02",
+			"contents": "[[File:Image-02.png|thumb]]"
+		}
+	],
+	"tests": [
+		{
+			"type": "parser",
+			"about": "#0",
+			"namespace": "NS_FILE",
+			"subject": "Image-02.png",
+			"assert-store": {
+				"semantic-data": {
+					"strictPropertyValueMatch": false,
+					"propertyCount": 4,
+					"propertyKeys": [
+						"Language dependent caption",
+						"_SKEY",
+						"_MDAT",
+						"_INST"
+					]
+				}
+			}
+		},
+		{
+			"type": "parser",
+			"about": "#2 caption from default_rule",
+			"subject": "SIC:02",
+			"assert-output": {
+				"to-contain": [
+					"test from Image-02.png-EN"
+				]
+			}
+		}
+	],
+	"settings": {
+		"wgContLang": "en",
+		"wgLang": "en",
+		"smwgNamespacesWithSemanticLinks": {
+			"NS_MAIN": true,
+			"NS_FILE": true,
+			"SMW_NS_SCHEMA": true,
+			"SMW_NS_PROPERTY": true,
+			"NS_CATEGORY": true
+		}
+	},
+	"meta": {
+		"version": "1",
+		"is-incomplete": false,
+		"debug": false
+	}
+}

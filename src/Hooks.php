@@ -14,6 +14,32 @@ use SMW\Schema\SchemaTypes;
 class Hooks {
 
 	/**
+	 * @since  1.0
+	 */
+	public function register() {
+
+		if ( !defined( 'MW_PHPUNIT_TEST' ) ) {
+			return;
+		}
+
+		$handlers = [
+			'SMW::Schema::RegisterSchemaTypes' => [ $this, 'onRegisterSchemaTypes' ],
+			'ImageBeforeProduceHTML' => [ $this, 'onImageBeforeProduceHTML' ]
+		];
+
+		foreach ( $handlers as $name => $callback ) {
+
+			if (
+				!class_exists( '\MediaWiki\MediaWikiServices' ) ||
+				!method_exists( \MediaWiki\MediaWikiServices::getInstance(), 'getHookContainer' ) ) {
+				\Hooks::register( $name, $callback );
+			} else {
+				\MediaWiki\MediaWikiServices::getInstance()->getHookContainer()->register( $name, $callback );
+			}
+		}
+	}
+
+	/**
 	 * @see https://www.semantic-mediawiki.org/wiki/Hooks#SMW::Schema::RegisterSchemaTypes
 	 *
 	 * @since 1.0

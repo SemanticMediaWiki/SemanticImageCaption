@@ -1,0 +1,78 @@
+{
+	"description": "Test generation of image caption from `default_rule`",
+	"setup": [
+		{
+			"namespace": "SMW_NS_SCHEMA",
+			"page": "Caption:TestRules01",
+			"contents": {
+				"import-from": "/../Fixtures/imagecaption.rules.json"
+			}
+		},
+		{
+			"namespace": "SMW_NS_PROPERTY",
+			"page": "Has caption",
+			"contents": "[[Has type::Text]]"
+		},
+		{
+			"namespace": "NS_FILE",
+			"page": "Image-01.png",
+			"contents": {
+				"upload": {
+					"file" : "/../Fixtures/image-upload-old-88.png",
+					"text" : "[[Has caption::test from {{PAGENAME}}]]"
+				}
+			}
+		},
+		{
+			"namespace": "NS_MAIN",
+			"page": "SIC:01",
+			"contents": "[[File:Image-01.png|thumb]]"
+		}
+	],
+	"tests": [
+		{
+			"type": "parser",
+			"about": "#0",
+			"namespace": "NS_FILE",
+			"subject": "Image-01.png",
+			"assert-store": {
+				"semantic-data": {
+					"strictPropertyValueMatch": false,
+					"propertyCount": 3,
+					"propertyKeys": [
+						"Has_caption",
+						"_SKEY",
+						"_MDAT"
+					]
+				}
+			}
+		},
+		{
+			"type": "parser",
+			"about": "#2 caption from default_rule",
+			"subject": "SIC:01",
+			"assert-output": {
+				"to-contain": [
+					"<b>Figure 1:</b>",
+					"test from Image-01.png"
+				]
+			}
+		}
+	],
+	"settings": {
+		"wgContLang": "en",
+		"wgLang": "en",
+		"smwgNamespacesWithSemanticLinks": {
+			"NS_MAIN": true,
+			"NS_FILE": true,
+			"SMW_NS_SCHEMA": true,
+			"SMW_NS_PROPERTY": true,
+			"NS_CATEGORY": true
+		}
+	},
+	"meta": {
+		"version": "1",
+		"is-incomplete": false,
+		"debug": false
+	}
+}

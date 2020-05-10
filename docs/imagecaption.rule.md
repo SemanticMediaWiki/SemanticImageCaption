@@ -54,11 +54,11 @@ The `default_rule` (without any conditional) applies when no other rule could be
 
 ### Conditional rule
 
-A conditional rule is identified by a `..._rule` name and contains a set of properties including:
+A conditional rule is identified by a `..._rule` name (except for `default_rule`) with a set of properties.
 
 - `if` defines the conditional as to when the rule applies and supports the following filters:
   - `category` identifies the category when the rule is expected to be used (supports a simple string, use of `oneOf` and `allOf`)
-- `then` defines the operational consequence in case the rule is selected and has the following properties:
+- `then` defines the operational consequence in case the rule is selected with the following properties:
   - `caption_property` defines the property from where the text for a caption is fetched
   - `max_length` maximum length of characters for a caption
   - `allow_caption_override` to define that an auto generated caption is allowed to be used even though the `[[File::Image.png|some text]]` provides its own local text

@@ -114,31 +114,30 @@ class ImageCaption {
 		}
 
 		$property = DIProperty::newFromUserLabel( $property );
-		$isMonolingualTextValue = $property->findPropertyValueType() === MonolingualTextValue::TYPE_ID;
-
-		$dataItems = $this->store->getPropertyValues(
-			$subject,
-			$property,
-			$requestOptions
-		);
 
 		$text = '';
 		$maxLength = $this->get( 'max_length', 200 );
 
-		if ( $dataItems === [] ) {
-			return '';
-		}
+		if ( $property->findPropertyValueType() === MonolingualTextValue::TYPE_ID ) {
+			$text .= $this->fetchTextByLanguageCode( $subject, $property, $languageCode );
+		} else {
+			$dataItems = $this->store->getPropertyValues(
+				$subject,
+				$property,
+				$requestOptions
+			);
 
-		foreach ( $dataItems as $dataItem ) {
-
-			$monolingualText = null;
-
-			if ( $dataItem instanceof DIWikiPage && $isMonolingualTextValue ) {
-				$monolingualText = $this->findMonolingualText( $property, $dataItem, $languageCode );
+			if ( $dataItems === [] ) {
+				return '';
 			}
 
-			if ( $dataItem instanceof DIBlob || $monolingualText !== null ) {
-				$text .= $monolingualText ?? $dataItem->getString();
+			foreach ( $dataItems as $dataItem ) {
+
+				if ( !$dataItem instanceof DIBlob ) {
+					continue;
+				}
+
+				$text .= $dataItem->getString();
 			}
 		}
 
@@ -156,26 +155,35 @@ class ImageCaption {
 		return $text;
 	}
 
-	private function findMonolingualText( $property, $dataItem, $languageCode ) {
+	private function fetchTextByLanguageCode( $subject, $property, $languageCode ) {
 
-		$text  = '';
+		try {
+			$monolingualTextLookup = $this->store->service( 'MonolingualTextLookup' );
+		} catch( ServiceNotFoundException $e ) {
+			return '';
+		}
 
-		$dataValue = DataValueFactory::getInstance()->newDataValueByItem(
-			$dataItem,
-			$property
+		if ( $monolingualTextLookup === null ) {
+			return '';
+		}
+
+		$monolingualTextLookup->setCaller( __METHOD__ );
+
+		$dataValue = $monolingualTextLookup->newDataValue(
+			$subject,
+			$property,
+			$languageCode
 		);
 
-		if ( !$dataValue->isValid() ) {
-			return $text;
+		if ( $dataValue === null ) {
+			return '';
 		}
 
-		$textValueByLanguageCode = $dataValue->getTextValueByLanguageCode( $languageCode );
+		$dv = $dataValue->getTextValueByLanguageCode(
+			$languageCode
+		);
 
-		if ( $textValueByLanguageCode !== '' ) {
-			$text = $textValueByLanguageCode;
-		}
-
-		return $text;
+		return $dv->getShortWikiText();
 	}
 
 	private function get( $key, $default ) {

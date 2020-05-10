@@ -10,6 +10,7 @@ Semantic Image Caption (a.k.a. SIC) is a [Semantic MediaWiki][smw] extension to 
 ## Requirements
 
 - PHP 7.1 or later
+- MediaWiki 1.32 to 1.34
 - Semantic MediaWiki 3.2 or later
 
 ## Installation
@@ -53,7 +54,7 @@ Add the following line to the end of your "LocalSettings.php" file:
 
 ## Usage
 
-Create a [schema][schema] with type [`IMAGECAPTION_RULE_SCHEMA`](/docs/imagecaption.rule.md) to identify the `default_rule` and possible other rules to match a specific requirement for the generating of caption information.
+Create a [schema][schema] with the [`IMAGECAPTION_RULE_SCHEMA`](/docs/imagecaption.rule.md) type to identify the `default_rule` and possible other rules to match a specific requirement for the generation of caption information.
 
 ## Contribution and support
 

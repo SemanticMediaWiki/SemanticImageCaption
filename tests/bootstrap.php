@@ -18,7 +18,7 @@ if ( !defined( 'SMW_PHPUNIT_FIRST_COLUMN_WIDTH' ) ) {
 	define( 'SMW_PHPUNIT_FIRST_COLUMN_WIDTH', $width );
 }
 
-print sprintf( "\n%-{$width}s%s", "Semantic Image Caption:", SMW_IMAGECAPTION_VERSION );
+print sprintf( "\n%-{$width}s%s\n", "Semantic Image Caption:", SMW_IMAGECAPTION_VERSION );
 
 $autoLoader = require SMW_PHPUNIT_AUTOLOADER_FILE;
 $autoloader->addPsr4( 'SMW\\ImageCaption\\Tests\\', __DIR__ . '/phpunit/Unit' );

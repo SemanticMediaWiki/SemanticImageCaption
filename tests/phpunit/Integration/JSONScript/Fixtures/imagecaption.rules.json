@@ -1,0 +1,26 @@
+{
+    "type": "IMAGECAPTION_RULE_SCHEMA",
+    "caption_rules": {
+        "default_rule": {
+            "max_length": 200,
+            "allow_caption_override": false,
+            "add_figures_reference": true,
+            "caption_property": "Has caption"
+        },
+        "language_dependent_caption_rule": {
+            "if": {
+                "category": "Language dependent caption category"
+            },
+            "then": {
+                "add_figures_reference": false,
+                "caption_property": "Language dependent caption",
+                "max_length": 200,
+                "allow_caption_override": true
+            }
+        }
+    },
+    "tags": [
+        "image",
+        "image caption"
+    ]
+}

@@ -54,9 +54,11 @@ class Hooks {
 	public static function onImageBeforeProduceHTML( &$dummy, &$title, &$file, &$frameParams, &$handlerParams, &$time, &$res, $parser, &$query, &$widthOption ) {
 
 		$applicationFactory = ApplicationFactory::getInstance();
+		$schemaFactory = $applicationFactory->singleton( 'SchemaFactory' );
 
 		$ruleFinder = new RuleFinder(
-			$applicationFactory->singleton( 'SchemaFactory' )
+			$schemaFactory->newSchemaFinder(),
+			$schemaFactory->newSchemaFilterFactory()
 		);
 
 		$imageCaption = new ImageCaption(

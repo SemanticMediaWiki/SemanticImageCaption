@@ -17,9 +17,9 @@ function installToMediaWikiRoot {
 		composer require 'phpunit/phpunit=6.5.*' --prefer-source --update-with-dependencies
 	fi
 
-	if [ "$SAR" != "" ]
+	if [ "$SIC" != "" ]
 	then
-		composer require 'mediawiki/semantic-image-caption='$SAR --prefer-source --update-with-dependencies
+		composer require 'mediawiki/semantic-image-caption='$SIC --prefer-source --update-with-dependencies
 	else
 		composer init --stability dev
 		composer require mediawiki/semantic-image-caption "dev-master" --prefer-source --dev --update-with-dependencies
@@ -58,6 +58,8 @@ function updateConfiguration {
 	then
 		echo '$wgLanguageCode = "'$SITELANG'";' >> LocalSettings.php
 	fi
+
+	echo 'define("SMW_PHPUNIT_PULL_VERSION_FROM_GITHUB", true);' >> LocalSettings.php
 
 	echo 'error_reporting(E_ALL| E_STRICT);' >> LocalSettings.php
 	echo 'ini_set("display_errors", 1);' >> LocalSettings.php

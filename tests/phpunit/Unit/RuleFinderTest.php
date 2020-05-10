@@ -17,13 +17,17 @@ class RuleFinderTest extends \PHPUnit_Framework_TestCase {
 
 	public function testCanConstruct() {
 
-		$schemaFactory = $this->getMockBuilder( '\SMW\Schema\SchemaFactory' )
+		$schemaFinder = $this->getMockBuilder( '\SMW\Schema\SchemaFinder' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$schemaFilterFactory = $this->getMockBuilder( '\SMW\Schema\SchemaFilterFactory' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$this->assertInstanceof(
 			RuleFinder::class,
-			new RuleFinder( $schemaFactory )
+			new RuleFinder( $schemaFinder, $schemaFilterFactory )
 		);
 	}
 
@@ -61,20 +65,9 @@ class RuleFinderTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getSchemaListByType' )
 			->will( $this->returnValue( $schemaList ) );
 
-		$schemaFactory = $this->getMockBuilder( '\SMW\Schema\SchemaFactory' )
-			->disableOriginalConstructor()
-			->getMock();
-
-		$schemaFactory->expects( $this->any() )
-			->method( 'newSchemaFinder' )
-			->will( $this->returnValue( $schemaFinder ) );
-
-		$schemaFactory->expects( $this->any() )
-			->method( 'newSchemaFilterFactory' )
-			->will( $this->returnValue( $schemaFilterFactory ) );
-
 		$instance = new RuleFinder(
-			$schemaFactory
+			$schemaFinder,
+			$schemaFilterFactory
 		);
 
 		$this->assertInstanceof(

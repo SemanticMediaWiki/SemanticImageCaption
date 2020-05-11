@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kghbln"
+		]
+	},
+	"semantic-imagecaption-desc": "{{desc|name=Semantic Image Caption|url=https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Image_Caption}}",
+	"semantic-imagecaption-name": "The name of this extension.\n{{Notranslate}}",
+	"semantic-imagecaption-rule-schema-description": "This is an informatory message.",
+	"semantic-imagecaption-figures": "This is a caption prefix automatically added to files.\n\nParameter:\n* $1 - holds an integer counting from 1 to x per file shown on the respective page using this system message."
+}

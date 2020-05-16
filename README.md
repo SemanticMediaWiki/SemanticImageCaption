@@ -54,7 +54,13 @@ Add the following line to the end of your "LocalSettings.php" file:
 
 ## Usage
 
+<img align="right" width="250" src="https://user-images.githubusercontent.com/1245473/81570680-740ffd00-9390-11ea-9db5-06f7d23b0b69.png">
+
 Create a [schema][schema] with the [`IMAGECAPTION_RULE_SCHEMA`](/docs/imagecaption.rule.md) type to identify the `default_rule` and possible other rules to match a specific requirement for the generation of caption information.
+
+Add caption annotations to images with a `Text` or `Monolingual text` type property (which is assigned to the `caption_property` in the schema).
+
+Depending on the rules defined, properties used, and captions provided, embedded images will show captions generated from image page annotations.
 
 ## Contribution and support
 

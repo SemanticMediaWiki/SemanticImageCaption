@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eduardo Addad de Oliveira"
+		]
+	},
+	"semantic-imagecaption-desc": "Extensão Semantic MediaWiki para apoiar a geração de legendas de imagens a partir de anotações.",
+	"semantic-imagecaption-figures": "<b>Figura $1:</b>"
+}

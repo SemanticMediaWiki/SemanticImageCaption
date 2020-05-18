@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kghbln"
+		]
+	},
+	"semantic-imagecaption-desc": "Ermöglicht die Nutzung von mit Annotationen gespeicherten Dateibeschriftungen",
+	"semantic-imagecaption-rule-schema-description": "Mit diesem Schematyp werden die Regeln festgelegt, nach denen die Beschriftungen von Dateien abgerufen und verwendet werden. Er wird von der Softwareerweiterung [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Image_Caption Semantic Image Caption] bereitgestellt.",
+	"semantic-imagecaption-figures": "<b>Bild $1:</b>"
+}

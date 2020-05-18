@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"BaRaN6161 TURK"
+		]
+	},
+	"semantic-imagecaption-desc": "Ek açıklamalardan resim altyazılarının Semantic MediaWiki oluşturma destek uzantısı.",
+	"semantic-imagecaption-rule-schema-description": "Bu şema türü, resim altyazılarının nasıl alınacağı ve dönüştürüleceğine ilişkin kuralların tanımını destekler ve [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Image_Caption Semantic Image Caption] uzantısı tarafından sağlanır.",
+	"semantic-imagecaption-figures": "<b>Çözüm $1:</b>"
+}

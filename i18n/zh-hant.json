@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kly"
+		]
+	},
+	"semantic-imagecaption-desc": "支援從註解來產生圖片說明的 Semantic MediaWiki 擴充。",
+	"semantic-imagecaption-rule-schema-description": "此架構類型支援由 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Image_Caption Semantic 圖片說明]擴充所提供如何檢索、轉換圖片說明的規則定義。",
+	"semantic-imagecaption-figures": "<b>圖示 $1：</b>"
+}

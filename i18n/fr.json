@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wladek92"
+		]
+	},
+	"semantic-imagecaption-desc": "Extension Semantic MediaWiki prenant en charge la génération des légendes d'images à partir des annotations.",
+	"semantic-imagecaption-rule-schema-description": "Ce type de schéma prend en charge la définition des règles sur la manière dont la légende des images est récupérée et transformée; il est fourni par l'extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Image_Caption Semantic Image Caption].",
+	"semantic-imagecaption-figures": "<b>Figure $1 :</b>"
+}

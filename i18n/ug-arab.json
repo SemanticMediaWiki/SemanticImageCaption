@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"AlimOmar"
+		]
+	},
+	"semantic-imagecaption-desc": "Semantic MediaWiki قىستۇرمىسى ئىزاھتىن رەسىملەرنىڭ ھاسىل قىلىنىشىنى قوللايدۇ.",
+	"semantic-imagecaption-rule-schema-description": "بۇ پىلان لايىھىسى رەسىملەرنىڭ ئىزاھاتىنىڭ قانداق ئەسلىگە كەلتۈرۈلگەنلىكى ۋە قانداق ئۆزگەرتىلىدىغانلىقى توغرىسىدىكى قائىدىلەرنىڭ ئېنىقلىمىسىنى قوللايدۇ ۋە [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Image_Caption Semantic Image Caption] كېڭەيتىلمىسى بىلەن تەمىنلەيدۇ.",
+	"semantic-imagecaption-figures": "<b>رەسىم $1:</b>"
+}

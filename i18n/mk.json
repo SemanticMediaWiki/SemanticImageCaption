@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06"
+		]
+	},
+	"semantic-imagecaption-desc": "Додаток на Семантички МедијаВики кој поддржува создавање на описи на слики од прибелешки.",
+	"semantic-imagecaption-rule-schema-description": "Овој вид на шема ја поддржува определбата на правилата за тоа како описите на сликите се извлекуваат и преобразуваат. Овозможен е од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Image_Caption Семантичко опис на слики].",
+	"semantic-imagecaption-figures": "<b>Слика $1:</b>"
+}

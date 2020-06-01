@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Eduardo Addad de Oliveira"
+			"Eduardo Addad de Oliveira",
+			"Jaideraf"
 		]
 	},
 	"semantic-imagecaption-desc": "Extensão Semantic MediaWiki para apoiar a geração de legendas de imagens a partir de anotações.",
+	"semantic-imagecaption-rule-schema-description": "Este tipo de esquema suporta a definição de regras para como legendas de imagens são obtidas e transformadas, é fornecido pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Image_Caption Semantic Image Caption].",
 	"semantic-imagecaption-figures": "<b>Figura $1:</b>"
 }

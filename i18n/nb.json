@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jon Harald Søby"
+		]
+	},
+	"semantic-imagecaption-desc": "Semantic MediaWiki-utvidelse for å støtte generering av bildetekster fra annoteringer.",
+	"semantic-imagecaption-rule-schema-description": "Denne skjematypen støtter definisjonen av regler for hvordan bildetekster hentes og transformeres, og gis av utvidelsen [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Image_Caption Semantic Image Caption].",
+	"semantic-imagecaption-figures": "<b>Figur $1:</b>"
+}

@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joetaras"
+		]
+	},
+	"semantic-imagecaption-desc": "L'estenzione MediaUicchi Semandeche supporte 'a generazione de le titole de l'immaggine da le annotaziune.",
+	"semantic-imagecaption-rule-schema-description": "Stu tipe de scheme supporte 'a definizione de le regole pe cumme 'ndestà le immaggine ca avènene pigghiate e trasformate e jè fatte da l'estenzione [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Image_Caption 'Ndestazione semandeche de l'immaggine].",
+	"semantic-imagecaption-figures": "<b>Figure $1:</b>"
+}

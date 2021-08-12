@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"DDPAT"
+		]
+	},
+	"semantic-imagecaption-desc": "Семантичне розширення MediaWiki для підтримки генерації підписів до зображень із анотацій.",
+	"semantic-imagecaption-rule-schema-description": "Цей тип схеми підтримує визначення правил вилучення та перетворення підписів зображень і надається розширенням [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Image_Caption Semantic Image Caption].",
+	"semantic-imagecaption-figures": "<b>Малюнок $1:</b>"
+}

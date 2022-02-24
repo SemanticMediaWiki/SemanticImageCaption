@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"DDPAT"
+			"DDPAT",
+			"Ice bulldog"
 		]
 	},
 	"semantic-imagecaption-desc": "Семантичне розширення MediaWiki для підтримки генерації підписів до зображень із анотацій.",

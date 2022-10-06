@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Amire80"
+		]
+	},
+	"semantic-imagecaption-desc": "הרחבת מדיה־ויקי סמנטית לתמיכה ביצירת כיתובי תמונה מהערות.",
+	"semantic-imagecaption-rule-schema-description": "סוג הסכֵמה הזה תומך בהגדרת חוקים לאופן שבו אנשים מאחזרים ומשנים כיתובי תמונה והוא מסופק על־ידי ההרחבה [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Image_Caption Semantic Image Caption].",
+	"semantic-imagecaption-figures": "<b>איור $1:</b>"
+}

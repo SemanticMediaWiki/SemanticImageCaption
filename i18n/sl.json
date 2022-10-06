@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"semantic-imagecaption-rule-schema-description": "Ta vrsta sheme podpira opredelitev pravil za pridobivanje in preoblikovanje napisov k slikam, zagotavlja pa jo razširitev [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Image_Caption Semantic Image Caption]."
+}

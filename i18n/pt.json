@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hamilton Abreu"
+		]
+	},
+	"semantic-imagecaption-desc": "Extensão do MediaWiki Semântico para suportar a geração de legendas de imagem, de anotações.",
+	"semantic-imagecaption-rule-schema-description": "Este tipo de esquema suporta a definição de regras para como as legendas das imagens são obtidas e transformadas e é fornecido pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Image_Caption Legendagem Semântica de Imagens].",
+	"semantic-imagecaption-figures": "<b>Figura $1:</b>"
+}

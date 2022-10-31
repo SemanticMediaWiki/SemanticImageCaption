@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Meno25"
+		]
+	},
+	"semantic-imagecaption-desc": "ميدياويكي الدلالي لدعم توليد تعليقات الصور من التعليقات التوضيحية.",
+	"semantic-imagecaption-rule-schema-description": "يدعم نوع المخطط هذا تعريف القواعد الخاصة بكيفية استرداد التسميات التوضيحية للصور وتحويلها ويتم توفيره من خلال الامتداد [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Image_Caption Semantic Image Caption].",
+	"semantic-imagecaption-figures": "<b>الشكل $1 :</b>"
+}

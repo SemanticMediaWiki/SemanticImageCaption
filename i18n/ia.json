@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"semantic-imagecaption-desc": "Extension de MediaWiki Semantic pro appoiar le generation de legendas de imagines a partir de annotationes.",
+	"semantic-imagecaption-rule-schema-description": "Iste typo de schema supporta le definition de regulas governante le recuperation e transformation de legendas de imagines e es fornite per le extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Image_Caption Semantic Image Caption].",
+	"semantic-imagecaption-figures": "<b>Figura $1:</b>"
+}

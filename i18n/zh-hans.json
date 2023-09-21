@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"LittlePaw365",
 			"SomeyaMako"
 		]
 	},
-	"semantic-imagecaption-figures": "<b>表格$1：</b>"
+	"semantic-imagecaption-desc": "支持从注释生成图像说明的语义MediaWiki扩展。",
+	"semantic-imagecaption-rule-schema-description": "此模式类型支持定义图像说明的检索和转换规则，由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Image_Caption 语义图像说明]扩展提供。",
+	"semantic-imagecaption-figures": "<b>图$1：</b>"
 }

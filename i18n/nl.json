@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"semantic-imagecaption-desc": "Semantic MediaWiki-uitbreiding ter ondersteuning van het genereren van afbeeldingsbijschriften op basis van annotaties.",
+	"semantic-imagecaption-rule-schema-description": "Dit schematype ondersteunt de definitie van regels voor de manier waarop bijschriften van afbeeldingen worden opgevraagd en omgezet. Het wordt geleverd door de uitbreiding [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Image_Caption Semantic Image Caption].",
+	"semantic-imagecaption-figures": "<b>Figuur $1:</b>"
+}

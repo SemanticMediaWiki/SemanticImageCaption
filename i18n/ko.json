@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"Tensama0415",
 			"Ykhwong"
 		]
 	},
-	"semantic-imagecaption-desc": "주석에서 이미지 캡션 생성을 지원하는 시맨틱 미디어위키 확장 기능입니다."
+	"semantic-imagecaption-desc": "주석에서 이미지 캡션 생성을 지원하는 시맨틱 미디어위키 확장 기능입니다.",
+	"semantic-imagecaption-figures": "<b>그림 $1:</b>"
 }

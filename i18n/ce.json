@@ -4,5 +4,7 @@
 			"Умар"
 		]
 	},
+	"semantic-imagecaption-desc": "Semantic MediaWiki шордар леррина аннотацех суьрташна хаамаш ​​генераци йан гӀо дан.",
+	"semantic-imagecaption-rule-schema-description": "ХӀокху схемин тайпано гӀо до суьртех лаьцна хаамаш ​​муха схьаоьцуш а, хуьйцуш а бакъонаш къасторан, иза ло [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Image_Caption Semantic Image Caption] шордаро.",
 	"semantic-imagecaption-figures": "<b>Суртдилар$1:</b>"
 }

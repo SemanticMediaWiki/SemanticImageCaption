@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Toliño"
+		]
+	},
+	"semantic-imagecaption-desc": "Extensión de MediaWiki semántica para permitir a xeración de lendas de imaxe a partir de anotacións.",
+	"semantic-imagecaption-rule-schema-description": "Este tipo de esquema admite a definición de regras sobre como se recuperan e transforman as lendas das imaxes. Está proporcionado pola extensión  [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Image_Caption Semantic Image Caption].",
+	"semantic-imagecaption-figures": "<b>Figura $1:</b>"
+}

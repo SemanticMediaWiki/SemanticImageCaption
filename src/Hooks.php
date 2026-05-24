@@ -2,8 +2,8 @@
 
 namespace SMW\ImageCaption;
 
-use SMW\ApplicationFactory;
 use SMW\Schema\SchemaTypes;
+use SMW\Services\ServicesFactory as ApplicationFactory;
 
 /**
  * @license GNU GPL v2+

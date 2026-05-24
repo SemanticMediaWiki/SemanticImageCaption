@@ -1,13 +1,22 @@
+!.*
 *~
 *.kate-swp
 .*.swp
 
-!.*
 .idea/
+
+.envrc
 .phpunit.result.cache
 
 composer.lock
 composer.phar
 
+npm-debug.log
+
 vendor/
 extensions/
+node_modules/
+conf/
+.DS_Store
+.env
+coverage

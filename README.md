@@ -1,17 +1,16 @@
 # Semantic Image Caption
-[![Build Status](https://travis-ci.org/SemanticMediaWiki/SemanticImageCaption.svg?branch=master)](https://travis-ci.org/SemanticMediaWiki/SemanticImageCaption)
-[![Code Coverage](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticImageCaption/badges/coverage.png?s=c5563fd91abeb49b37a6ef999198530b6796dd3c)](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticImageCaption/)
-[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticImageCaption/badges/quality-score.png?s=9cc8ce493f63f5c2c22db71b2061b4b8c21f43ba)](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticImageCaption/)
-[![Latest Stable Version](https://poser.pugx.org/mediawiki/semantic-image-caption/version.png)](https://packagist.org/packages/mediawiki/semantic-image-caption)
-[![Packagist download count](https://poser.pugx.org/mediawiki/semantic-image-caption/d/total.png)](https://packagist.org/packages/mediawiki/semantic-image-caption)
+[![CI](https://github.com/SemanticMediaWiki/SemanticImageCaption/actions/workflows/ci.yml/badge.svg)](https://github.com/SemanticMediaWiki/SemanticImageCaption/actions/workflows/ci.yml)
+![Latest Stable Version](https://img.shields.io/packagist/v/mediawiki/semantic-image-caption.svg)
+![Total Download Count](https://img.shields.io/packagist/dt/mediawiki/semantic-image-caption.svg)
+[![codecov](https://codecov.io/gh/SemanticMediaWiki/SemanticImageCaption/graph/badge.svg?token=Si45N9MsGq)](https://codecov.io/gh/SemanticMediaWiki/SemanticImageCaption)
 
 Semantic Image Caption (a.k.a. SIC) is a [Semantic MediaWiki][smw] extension to support the generation of image captions from annotations.
 
 ## Requirements
 
-- PHP 7.1 or later
-- MediaWiki 1.32 to 1.34
-- Semantic MediaWiki 3.2 or later
+- PHP 8.1 or later
+- MediaWiki 1.43 or later
+- Semantic MediaWiki 6.0 or later
 
 ## Installation
 
@@ -84,7 +83,7 @@ This extension provides unit and integration tests that are run by a [continues 
 [licence]: https://www.gnu.org/copyleft/gpl.html
 [mwcomposer]: https://www.mediawiki.org/wiki/Composer
 [smw]: https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki
-[travis]: https://travis-ci.org/SemanticMediaWiki/SemanticImageCaption
+[GitHub Actions]: https://docs.github.com/en/actions
 [mw-testing]: https://www.mediawiki.org/wiki/Manual:PHP_unit_testing
 [mw-update]: https://www.mediawiki.org/wiki/Manual:Update.php
 [mw-localsettings]: https://www.mediawiki.org/wiki/Localsettings

@@ -9,6 +9,7 @@ use SMW\ImageCaption\Hooks;
  * @see https://github.com/SemanticMediaWiki/SemanticMediaWiki/blob/master/tests/phpunit/Integration/JSONScript/docs/extension.md
  *
  * @group semantic-image-caption
+ * @group Database
  * @group medium
  *
  * @license GNU GPL v2+
@@ -33,7 +34,7 @@ class JSONScriptTestCaseRunnerSemanticImageCaptionTest extends JSONScriptService
 	/**
 	 * @see JSONScriptServicesTestCaseRunner::runTestAssertionForType
 	 */
-	protected function runTestAssertionForType( string $type ) : bool {
+	protected function runTestAssertionForType( string $type ): bool {
 		return $type === 'parser';
 	}
 
@@ -41,7 +42,7 @@ class JSONScriptTestCaseRunnerSemanticImageCaptionTest extends JSONScriptService
 	 * @see JSONScriptTestCaseRunner::getTestCaseLocation
 	 * @return string
 	 */
-	protected function getTestCaseLocation() {
+	protected function getTestCaseLocation(): string {
 		return __DIR__ . '/TestCases';
 	}
 
@@ -49,14 +50,14 @@ class JSONScriptTestCaseRunnerSemanticImageCaptionTest extends JSONScriptService
 	 * @see JSONScriptTestCaseRunner::getRequiredJsonTestCaseMinVersion
 	 * @return string
 	 */
-	protected function getRequiredJsonTestCaseMinVersion() {
+	protected function getRequiredJsonTestCaseMinVersion(): string {
 		return '1';
 	}
 
 	/**
 	 * @see JSONScriptTestCaseRunner::getPermittedSettings
 	 */
-	protected function getPermittedSettings() {
+	protected function getPermittedSettings(): array {
 		$settings = parent::getPermittedSettings();
 
 		return array_merge( $settings, [

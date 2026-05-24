@@ -2,6 +2,9 @@
 
 namespace SMW\ImageCaption;
 
+use File;
+use MediaWiki\Title\Title;
+use MediaWiki\Html\Html;
 use SMW\Store;
 use SMW\DIWikiPage;
 use SMW\DIProperty;
@@ -10,9 +13,6 @@ use SMW\DataValueFactory;
 use SMWDIBlob as DIBlob;
 use SMW\Utils\Normalizer;
 use SMW\RequestOptions;
-use Title;
-use File;
-use Html;
 
 /**
  * @license GNU GPL v2+

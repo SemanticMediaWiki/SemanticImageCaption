@@ -2,8 +2,8 @@
 
 namespace SMW\ImageCaption\Tests\Structure;
 
+use PHPUnit\Framework\TestCase;
 use SMW\Tests\Utils\UtilityFactory;
-use SMW\Tests\PHPUnitCompat;
 
 /**
  * @group semantic-image-caption
@@ -14,9 +14,7 @@ use SMW\Tests\PHPUnitCompat;
  *
  * @author mwjames
  */
-class I18nJsonFileStructureTest extends \PHPUnit_Framework_TestCase {
-
-	use PHPUnitCompat;
+class I18nJsonFileStructureTest extends TestCase {
 
 	/**
 	 * @dataProvider i18nFileProvider
@@ -25,13 +23,11 @@ class I18nJsonFileStructureTest extends \PHPUnit_Framework_TestCase {
 
 		$jsonFileReader = UtilityFactory::getInstance()->newJsonFileReader( $file );
 
-		$this->assertInternalType(
-			'integer',
+		$this->assertIsInt(
 			$jsonFileReader->getModificationTime()
 		);
 
-		$this->assertInternalType(
-			'array',
+		$this->assertIsArray(
 			$jsonFileReader->read()
 		);
 	}

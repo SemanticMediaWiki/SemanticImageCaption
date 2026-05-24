@@ -2,6 +2,8 @@
 
 namespace SMW\ImageCaption\Tests;
 
+use MediaWiki\Title\Title;
+use PHPUnit\Framework\TestCase;
 use SMW\ImageCaption\ImageCaption;
 
 /**
@@ -13,7 +15,7 @@ use SMW\ImageCaption\ImageCaption;
  *
  * @author mwjames
  */
-class ImageCaptionTest extends \PHPUnit_Framework_TestCase {
+class ImageCaptionTest extends TestCase {
 
 	private $store;
 	private $ruleFinder;
@@ -72,7 +74,7 @@ class ImageCaptionTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getPropertyValues' )
 			->will( $this->returnValue( [] ) );
 
-		$title = $this->getMockBuilder( '\Title' )
+		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -127,7 +129,7 @@ class ImageCaptionTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getPropertyValues' )
 			->will( $this->returnValue( [] ) );
 
-		$title = $this->getMockBuilder( '\Title' )
+		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
 

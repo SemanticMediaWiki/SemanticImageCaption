@@ -2,6 +2,7 @@
 
 namespace SMW\ImageCaption\Tests;
 
+use PHPUnit\Framework\TestCase;
 use SMW\ImageCaption\RuleFinder;
 
 /**
@@ -13,7 +14,7 @@ use SMW\ImageCaption\RuleFinder;
  *
  * @author mwjames
  */
-class RuleFinderTest extends \PHPUnit_Framework_TestCase {
+class RuleFinderTest extends TestCase {
 
 	public function testCanConstruct() {
 

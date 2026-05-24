@@ -2,6 +2,8 @@
 
 namespace SMW\ImageCaption\Tests;
 
+use MediaWiki\Title\Title;
+use PHPUnit\Framework\TestCase;
 use SMW\ImageCaption\Hooks;
 
 /**
@@ -13,7 +15,7 @@ use SMW\ImageCaption\Hooks;
  *
  * @author mwjames
  */
-class HooksTest extends \PHPUnit_Framework_TestCase {
+class HooksTest extends TestCase {
 
 	public function testOnRegisterSchemaTypes() {
 
@@ -32,7 +34,7 @@ class HooksTest extends \PHPUnit_Framework_TestCase {
 
 	public function testOnImageBeforeProduceHTML() {
 
-		$title = $this->getMockBuilder( '\Title' )
+		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
 

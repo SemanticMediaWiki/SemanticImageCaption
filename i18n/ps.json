@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"شاه زمان پټان"
+		]
+	},
+	"semantic-imagecaption-desc": "د لمنليکونو څخه د انځورونو د نيونگو د زېږولو ملاتړ لپاره ماناپوهنيزه مېډياويکي شاتاړی.",
+	"semantic-imagecaption-rule-schema-description": "دا جوړښتي‌گارليک ډول د هغه قواعدو تعريف ملاتړ کوي چې څنگه د انځور نيونگونه بېرته ترلاسه کېدی او بدلېدی شي چې د [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Image_Caption ماناپوهنيزه انځور نيونگ] شاتاړي له خوا چمتو شوي وي.",
+	"semantic-imagecaption-figures": "<b>څېره:</b>"
+}

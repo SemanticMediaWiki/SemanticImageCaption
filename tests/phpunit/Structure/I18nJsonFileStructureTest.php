@@ -35,6 +35,10 @@ class I18nJsonFileStructureTest extends TestCase {
 		$provider = [];
 		$location = $GLOBALS['wgMessagesDirs']['SemanticImageCaption'];
 
+		if ( is_array( $location ) ) {
+			$location = $location[0];
+		}
+
 		$bulkFileProvider = UtilityFactory::getInstance()->newBulkFileProvider( $location );
 		$bulkFileProvider->searchByFileExtension( 'json' );
 

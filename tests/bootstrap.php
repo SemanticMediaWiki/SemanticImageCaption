@@ -18,7 +18,8 @@ if ( !defined( 'SMW_PHPUNIT_FIRST_COLUMN_WIDTH' ) ) {
 	define( 'SMW_PHPUNIT_FIRST_COLUMN_WIDTH', $width );
 }
 
-print sprintf( "\n%-{$width}s%s\n", "Semantic Image Caption:", SMW_IMAGECAPTION_VERSION );
+$extensionInfo = json_decode( file_get_contents( __DIR__ . '/../extension.json' ), true );
+print sprintf( "\n%-{$width}s%s\n", "Semantic Image Caption:", $extensionInfo['version'] ?? 'UNKNOWN' );
 
 $autoLoader = require SMW_PHPUNIT_AUTOLOADER_FILE;
 $autoloader->addPsr4( 'SMW\\ImageCaption\\Tests\\', __DIR__ . '/phpunit/Unit' );

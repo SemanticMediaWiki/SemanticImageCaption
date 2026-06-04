@@ -39,11 +39,6 @@
 			"dev-master": "7.0.0-dev"
 		}
 	},
-	"autoload": {
-		"files" : [
-			"SemanticImageCaption.php"
-		]
-	},
 	"config": {
 		"process-timeout": 0,
 		"allow-plugins": {

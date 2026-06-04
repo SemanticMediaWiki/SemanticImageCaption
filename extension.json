@@ -21,10 +21,6 @@
 			"i18n"
 		]
 	},
-	"callback": "SemanticImageCaption::initExtension",
-	"ExtensionFunctions": [
-		"SemanticImageCaption::onExtensionFunction"
-	],
 	"Hooks": {
 		"ImageBeforeProduceHTML": [
 			"SMW\\ImageCaption\\Hooks::onImageBeforeProduceHTML"
@@ -39,9 +35,5 @@
 	"TestAutoloadNamespaces": {
 		"SMW\\ImageCaption\\Tests": "tests/phpunit"
 	},
-	"AutoloadClasses": {
-		"SemanticImageCaption": "SemanticImageCaption.php"
-	},
-	"load_composer_autoloader":true,
 	"manifest_version": 2
 }

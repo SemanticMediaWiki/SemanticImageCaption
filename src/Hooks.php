@@ -2,7 +2,6 @@
 
 namespace SMW\ImageCaption;
 
-use MediaWiki\MediaWikiServices;
 use SMW\Schema\SchemaTypes;
 use SMW\Services\ServicesFactory as ApplicationFactory;
 
@@ -13,26 +12,6 @@ use SMW\Services\ServicesFactory as ApplicationFactory;
  * @author mwjames
  */
 class Hooks {
-
-	/**
-	 * @since  1.0
-	 */
-	public function register() {
-		if ( !defined( 'MW_PHPUNIT_TEST' ) ) {
-			return;
-		}
-
-		$handlers = [
-			'SMW::Schema::RegisterSchemaTypes' => [ $this, 'onRegisterSchemaTypes' ],
-			'ImageBeforeProduceHTML' => [ $this, 'onImageBeforeProduceHTML' ]
-		];
-
-		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
-
-		foreach ( $handlers as $name => $callback ) {
-			$hookContainer->register( $name, $callback );
-		}
-	}
 
 	/**
 	 * @see https://www.semantic-mediawiki.org/wiki/Hooks#SMW::Schema::RegisterSchemaTypes

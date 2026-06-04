@@ -10,7 +10,7 @@ use SMW\ImageCaption\Hooks;
  * @covers \SMW\ImageCaption\Hooks
  * @group semantic-image-caption
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -18,7 +18,6 @@ use SMW\ImageCaption\Hooks;
 class HooksTest extends TestCase {
 
 	public function testOnRegisterSchemaTypes() {
-
 		$schemaTypes = $this->getMockBuilder( '\SMW\Schema\SchemaTypes' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -33,14 +32,13 @@ class HooksTest extends TestCase {
 	}
 
 	public function testOnImageBeforeProduceHTML() {
-
 		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$title->expects( $this->any() )
 			->method( 'getNamespace' )
-			->will( $this->returnValue( NS_MAIN ) );
+			->willReturn( NS_MAIN );
 
 		$file = $this->getMockBuilder( '\File' )
 			->disableOriginalConstructor()
@@ -48,7 +46,7 @@ class HooksTest extends TestCase {
 
 		$file->expects( $this->any() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( $title ) );
+			->willReturn( $title );
 
 		$parserOptions = $this->getMockBuilder( '\ParserOptions' )
 			->disableOriginalConstructor()
@@ -56,7 +54,7 @@ class HooksTest extends TestCase {
 
 		$parserOptions->expects( $this->any() )
 			->method( 'getUserLang' )
-			->will( $this->returnValue( 'en' ) );
+			->willReturn( 'en' );
 
 		$parser = $this->getMockBuilder( '\Parser' )
 			->disableOriginalConstructor()
@@ -64,11 +62,11 @@ class HooksTest extends TestCase {
 
 		$parser->expects( $this->any() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( $title ) );
+			->willReturn( $title );
 
 		$parser->expects( $this->any() )
 			->method( 'getOptions' )
-			->will( $this->returnValue( $parserOptions ) );
+			->willReturn( $parserOptions );
 
 		$frameParams['caption'] = '';
 		$handlerParams = [];

@@ -10,7 +10,7 @@ use SMW\ImageCaption\ImageCaption;
  * @covers \SMW\ImageCaption\ImageCaption
  * @group semantic-image-caption
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -20,8 +20,7 @@ class ImageCaptionTest extends TestCase {
 	private $store;
 	private $ruleFinder;
 
-	protected function setUp() : void {
-
+	protected function setUp(): void {
 		$this->store = $this->getMockBuilder( '\SMW\Store' )
 			->disableOriginalConstructor()
 			->setMethods( [ 'getPropertyValues' ] )
@@ -33,7 +32,6 @@ class ImageCaptionTest extends TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceof(
 			ImageCaption::class,
 			new ImageCaption( $this->store, $this->ruleFinder )
@@ -41,7 +39,6 @@ class ImageCaptionTest extends TestCase {
 	}
 
 	public function testModifyCaption_EmptyCaption() {
-
 		$caption = '';
 
 		$rule = $this->getMockBuilder( '\SMW\Schema\Rule' )
@@ -51,16 +48,16 @@ class ImageCaptionTest extends TestCase {
 		$rule->expects( $this->at( 1 ) )
 			->method( 'has' )
 			->with( $this->stringContains( 'then.caption_property' ) )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$rule->expects( $this->at( 2 ) )
 			->method( 'then' )
 			->with( $this->stringContains( 'caption_property' ) )
-			->will( $this->returnValue( 'Foo' ) );
+			->willReturn( 'Foo' );
 
 		$rule->expects( $this->at( 3 ) )
 			->method( 'has' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$rule->expects( $this->at( 4 ) )
 			->method( 'then' )
@@ -68,11 +65,11 @@ class ImageCaptionTest extends TestCase {
 
 		$this->ruleFinder->expects( $this->any() )
 			->method( 'findRule' )
-			->will( $this->returnValue( $rule ) );
+			->willReturn( $rule );
 
 		$this->store->expects( $this->any() )
 			->method( 'getPropertyValues' )
-			->will( $this->returnValue( [] ) );
+			->willReturn( [] );
 
 		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
@@ -80,7 +77,7 @@ class ImageCaptionTest extends TestCase {
 
 		$title->expects( $this->any() )
 			->method( 'getNamespace' )
-			->will( $this->returnValue( NS_MAIN ) );
+			->willReturn( NS_MAIN );
 
 		$file = $this->getMockBuilder( '\File' )
 			->disableOriginalConstructor()
@@ -88,7 +85,7 @@ class ImageCaptionTest extends TestCase {
 
 		$file->expects( $this->any() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( $title ) );
+			->willReturn( $title );
 
 		$instance = new ImageCaption(
 			$this->store,
@@ -97,14 +94,13 @@ class ImageCaptionTest extends TestCase {
 
 		$instance->modifyCaption( $title, $file, $caption, 'en' );
 
-		$this->assertEquals(
+		$this->assertSame(
 			'',
 			$caption
 		);
 	}
 
 	public function testModifyCaption_PreventCaptionOverride() {
-
 		$caption = 'Foo';
 
 		$rule = $this->getMockBuilder( '\SMW\Schema\Rule' )
@@ -114,20 +110,20 @@ class ImageCaptionTest extends TestCase {
 		$rule->expects( $this->at( 1 ) )
 			->method( 'has' )
 			->with( $this->stringContains( 'then.allow_caption_override' ) )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$rule->expects( $this->at( 2 ) )
 			->method( 'then' )
 			->with( $this->stringContains( 'allow_caption_override' ) )
-			->will( $this->returnValue( false ) );
+			->willReturn( false );
 
 		$this->ruleFinder->expects( $this->any() )
 			->method( 'findRule' )
-			->will( $this->returnValue( $rule ) );
+			->willReturn( $rule );
 
 		$this->store->expects( $this->any() )
 			->method( 'getPropertyValues' )
-			->will( $this->returnValue( [] ) );
+			->willReturn( [] );
 
 		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
@@ -135,7 +131,7 @@ class ImageCaptionTest extends TestCase {
 
 		$title->expects( $this->any() )
 			->method( 'getNamespace' )
-			->will( $this->returnValue( NS_MAIN ) );
+			->willReturn( NS_MAIN );
 
 		$file = $this->getMockBuilder( '\File' )
 			->disableOriginalConstructor()
@@ -143,7 +139,7 @@ class ImageCaptionTest extends TestCase {
 
 		$file->expects( $this->any() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( $title ) );
+			->willReturn( $title );
 
 		$instance = new ImageCaption(
 			$this->store,

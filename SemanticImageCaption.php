@@ -1,7 +1,5 @@
 <?php
 
-use SMW\ImageCaption\Hooks;
-
 /**
  * Complementary extension to Semantic MediaWiki to support auto-caption of
  * images.
@@ -25,7 +23,6 @@ class SemanticImageCaption {
 	 * the extension is activated.
 	 */
 	public static function load() {
-
 		if ( !defined( 'MEDIAWIKI' ) ) {
 			return;
 		}
@@ -40,8 +37,7 @@ class SemanticImageCaption {
 	 * @see https://www.mediawiki.org/wiki/Manual:Extension.json/Schema#callback
 	 */
 	public static function initExtension( $credits = [] ) {
-
-		$version = 'UNKNOWN' ;
+		$version = 'UNKNOWN';
 
 		// See https://phabricator.wikimedia.org/T151136
 		if ( isset( $credits['version'] ) ) {
@@ -57,7 +53,6 @@ class SemanticImageCaption {
 	 * @since 1.0
 	 */
 	public static function onExtensionFunction() {
-
 	}
 
 }

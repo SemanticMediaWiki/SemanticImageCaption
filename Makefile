@@ -14,7 +14,7 @@ EXTENSION := SemanticImageCaption
 MW_VERSION?=1.43
 PHP_VERSION?=8.2
 DB_TYPE?=mysql
-DB_IMAGE?="mariadb:11.2"
+DB_IMAGE?="mariadb:11.4"
 
 # extensions
 SMW_VERSION?=dev-master

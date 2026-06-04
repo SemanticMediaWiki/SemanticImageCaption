@@ -3,7 +3,6 @@
 namespace SMW\ImageCaption\Tests\Integration\JSONScript;
 
 use SMW\Tests\JSONScriptServicesTestCaseRunner;
-use SMW\ImageCaption\Hooks;
 
 /**
  * @see https://github.com/SemanticMediaWiki/SemanticMediaWiki/blob/master/tests/phpunit/Integration/JSONScript/docs/extension.md
@@ -12,24 +11,12 @@ use SMW\ImageCaption\Hooks;
  * @group Database
  * @group medium
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
  */
 class JSONScriptTestCaseRunnerSemanticImageCaptionTest extends JSONScriptServicesTestCaseRunner {
-
-	/**
-	 * @var Hooks
-	 */
-	private $hooks;
-
-	protected function setUp() : void {
-		parent::setUp();
-
-		$this->hooks = new Hooks();
-		$this->hooks->register();
-	}
 
 	/**
 	 * @see JSONScriptServicesTestCaseRunner::runTestAssertionForType

@@ -1,0 +1,62 @@
+{
+	"description": "Test `Figure N` numbering increments across multiple images on a page",
+	"setup": [
+		{
+			"namespace": "SMW_NS_SCHEMA",
+			"page": "Caption:TestRules01",
+			"contents": {
+				"import-from": "/../Fixtures/imagecaption.rules.json"
+			}
+		},
+		{
+			"namespace": "SMW_NS_PROPERTY",
+			"page": "Has caption",
+			"contents": "[[Has type::Text]]"
+		},
+		{
+			"namespace": "NS_FILE",
+			"page": "Image-03.png",
+			"contents": {
+				"upload": {
+					"file" : "/../Fixtures/image-upload-old-88.png",
+					"text" : "[[Has caption::Alpha caption]]"
+				}
+			}
+		},
+		{
+			"namespace": "NS_MAIN",
+			"page": "SIC:03",
+			"contents": "[[File:Image-03.png|thumb]]\n[[File:Image-03.png|thumb]]"
+		}
+	],
+	"tests": [
+		{
+			"type": "parser",
+			"about": "#0 the first embed is Figure 1, the second is Figure 2",
+			"subject": "SIC:03",
+			"assert-output": {
+				"to-contain": [
+					"<b>Figure 1:</b>",
+					"<b>Figure 2:</b>",
+					"Alpha caption"
+				]
+			}
+		}
+	],
+	"settings": {
+		"wgContLang": "en",
+		"wgLang": "en",
+		"smwgNamespacesWithSemanticLinks": {
+			"NS_MAIN": true,
+			"NS_FILE": true,
+			"SMW_NS_SCHEMA": true,
+			"SMW_NS_PROPERTY": true,
+			"NS_CATEGORY": true
+		}
+	},
+	"meta": {
+		"version": "1",
+		"is-incomplete": false,
+		"debug": false
+	}
+}

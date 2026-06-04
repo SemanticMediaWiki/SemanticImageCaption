@@ -2,14 +2,13 @@
 
 namespace SMW\ImageCaption;
 
+use SMW\Schema\CompartmentIterator;
+use SMW\Schema\Rule;
 use SMW\Schema\SchemaFilterFactory;
 use SMW\Schema\SchemaFinder;
-use SMW\Schema\SchemaFilter;
-use SMW\Schema\Rule;
-use SMW\Schema\CompartmentIterator;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -44,8 +43,7 @@ class RuleFinder {
 	 *
 	 * @return Rule
 	 */
-	public function findRule( array $categories = [] ) : Rule {
-
+	public function findRule( array $categories = [] ): Rule {
 		$schemaList = $this->schemaFinder->getSchemaListByType(
 			ImageCaption::SCHEMA_TYPE
 		);

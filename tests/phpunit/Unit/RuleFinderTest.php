@@ -9,7 +9,7 @@ use SMW\ImageCaption\RuleFinder;
  * @covers \SMW\ImageCaption\RuleFinder
  * @group semantic-image-caption
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -17,7 +17,6 @@ use SMW\ImageCaption\RuleFinder;
 class RuleFinderTest extends TestCase {
 
 	public function testCanConstruct() {
-
 		$schemaFinder = $this->getMockBuilder( '\SMW\Schema\SchemaFinder' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -33,7 +32,6 @@ class RuleFinderTest extends TestCase {
 	}
 
 	public function testFindRule_CategoryFilter() {
-
 		$rule = $this->getMockBuilder( '\SMW\Schema\Rule' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -44,7 +42,7 @@ class RuleFinderTest extends TestCase {
 
 		$categoryFilter->expects( $this->any() )
 			->method( 'getMatches' )
-			->will( $this->returnValue( [ $rule ] ) );
+			->willReturn( [ $rule ] );
 
 		$schemaFilterFactory = $this->getMockBuilder( '\SMW\Schema\SchemaFilterFactory' )
 			->disableOriginalConstructor()
@@ -52,7 +50,7 @@ class RuleFinderTest extends TestCase {
 
 		$schemaFilterFactory->expects( $this->any() )
 			->method( 'newCategoryFilter' )
-			->will( $this->returnValue( $categoryFilter ) );
+			->willReturn( $categoryFilter );
 
 		$schemaList = $this->getMockBuilder( '\SMW\Schema\SchemaList' )
 			->disableOriginalConstructor()
@@ -64,7 +62,7 @@ class RuleFinderTest extends TestCase {
 
 		$schemaFinder->expects( $this->any() )
 			->method( 'getSchemaListByType' )
-			->will( $this->returnValue( $schemaList ) );
+			->willReturn( $schemaList );
 
 		$instance = new RuleFinder(
 			$schemaFinder,

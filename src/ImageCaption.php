@@ -4,25 +4,25 @@ namespace SMW\ImageCaption;
 
 use File;
 use MediaWiki\Title\Title;
-use MediaWiki\Html\Html;
-use SMW\Store;
-use SMW\DIWikiPage;
-use SMW\DIProperty;
+use SMW\DataItems\Blob;
+use SMW\DataItems\Property;
+use SMW\DataItems\WikiPage;
 use SMW\DataValues\MonolingualTextValue;
-use SMW\DataValueFactory;
-use SMWDIBlob as DIBlob;
-use SMW\Utils\Normalizer;
 use SMW\RequestOptions;
+use SMW\Services\Exception\ServiceNotFoundException;
+use SMW\Store;
+use SMW\Utils\Normalizer;
+use WeakMap;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
  */
 class ImageCaption {
 
-	const SCHEMA_TYPE = 'IMAGECAPTION_RULE_SCHEMA';
+	public const SCHEMA_TYPE = 'IMAGECAPTION_RULE_SCHEMA';
 
 	/**
 	 * @var Store
@@ -38,6 +38,14 @@ class ImageCaption {
 	 * @var Rule
 	 */
 	private $rule;
+
+	/**
+	 * Running count of embedded images, keyed by the page they appear on, used
+	 * to number the `Figure N` references.
+	 *
+	 * @var WeakMap<Title, int>|null
+	 */
+	private static ?WeakMap $figureCounts = null;
 
 	/**
 	 * @since 1.0
@@ -59,19 +67,15 @@ class ImageCaption {
 	 * @param string $languageCode
 	 */
 	public function modifyCaption( Title $target, $file, string &$caption, string $languageCode ) {
-
 		if ( !$file instanceof File ) {
 			return;
 		}
 
-		// Track count of embedded images
-		if ( isset( $target->semanticimagecaptioncount ) ) {
-			$target->semanticimagecaptioncount++;
-		} else {
-			$target->semanticimagecaptioncount = 1;
-		}
+		// Track the running count of embedded images for the page
+		self::$figureCounts ??= new WeakMap();
+		self::$figureCounts[$target] = ( self::$figureCounts[$target] ?? 0 ) + 1;
 
-		$subject = DIWikiPage::newFromTitle(
+		$subject = WikiPage::newFromTitle(
 			$file->getTitle()
 		);
 
@@ -82,14 +86,13 @@ class ImageCaption {
 		}
 	}
 
-	private function findText( DIWikiPage $subject, Title $target, string $caption, string $languageCode ) : string {
-
+	private function findText( WikiPage $subject, Title $target, string $caption, string $languageCode ): string {
 		$requestOptions = new RequestOptions();
 		$requestOptions->setCaller( __METHOD__ );
 
 		$dataItems = $this->store->getPropertyValues(
 			$subject,
-			new DIProperty( '_INST' ),
+			new Property( '_INST' ),
 			$requestOptions
 		);
 
@@ -109,11 +112,13 @@ class ImageCaption {
 			return '';
 		}
 
-		if ( ( $property = $this->get( 'caption_property', '' ) ) === '' ) {
+		$property = $this->get( 'caption_property', '' );
+
+		if ( $property === '' ) {
 			return '';
 		}
 
-		$property = DIProperty::newFromUserLabel( $property );
+		$property = Property::newFromUserLabel( $property );
 
 		$text = '';
 		$maxLength = $this->get( 'max_length', 200 );
@@ -133,7 +138,7 @@ class ImageCaption {
 
 			foreach ( $dataItems as $dataItem ) {
 
-				if ( !$dataItem instanceof DIBlob ) {
+				if ( !$dataItem instanceof Blob ) {
 					continue;
 				}
 
@@ -149,17 +154,17 @@ class ImageCaption {
 		}
 
 		if ( $this->get( 'add_figures_reference', false ) ) {
-			$text = wfMessage( 'semantic-imagecaption-figures', $target->semanticimagecaptioncount )->parse() . "&nbsp;$text";
+			$figureNumber = self::$figureCounts[$target] ?? 1;
+			$text = wfMessage( 'semantic-imagecaption-figures', $figureNumber )->parse() . "&nbsp;$text";
 		}
 
 		return $text;
 	}
 
 	private function fetchTextByLanguageCode( $subject, $property, $languageCode ) {
-
 		try {
 			$monolingualTextLookup = $this->store->service( 'MonolingualTextLookup' );
-		} catch( ServiceNotFoundException $e ) {
+		} catch ( ServiceNotFoundException $e ) {
 			return '';
 		}
 
@@ -187,7 +192,6 @@ class ImageCaption {
 	}
 
 	private function get( $key, $default ) {
-
 		if ( $this->rule->has( "then.$key" ) ) {
 			return $this->rule->then( $key, $default );
 		}

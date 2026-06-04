@@ -2,11 +2,12 @@
 
 namespace SMW\ImageCaption;
 
+use MediaWiki\MediaWikiServices;
 use SMW\Schema\SchemaTypes;
 use SMW\Services\ServicesFactory as ApplicationFactory;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -17,7 +18,6 @@ class Hooks {
 	 * @since  1.0
 	 */
 	public function register() {
-
 		if ( !defined( 'MW_PHPUNIT_TEST' ) ) {
 			return;
 		}
@@ -27,15 +27,10 @@ class Hooks {
 			'ImageBeforeProduceHTML' => [ $this, 'onImageBeforeProduceHTML' ]
 		];
 
-		foreach ( $handlers as $name => $callback ) {
+		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
 
-			if (
-				!class_exists( '\MediaWiki\MediaWikiServices' ) ||
-				!method_exists( \MediaWiki\MediaWikiServices::getInstance(), 'getHookContainer' ) ) {
-				\Hooks::register( $name, $callback );
-			} else {
-				\MediaWiki\MediaWikiServices::getInstance()->getHookContainer()->register( $name, $callback );
-			}
+		foreach ( $handlers as $name => $callback ) {
+			$hookContainer->register( $name, $callback );
 		}
 	}
 
@@ -47,7 +42,6 @@ class Hooks {
 	 * @param SchemaTypes $schemaTypes
 	 */
 	public static function onRegisterSchemaTypes( SchemaTypes $schemaTypes ) {
-
 		$params = [
 			'group' => 'schema/group/imagecaption',
 			'validation_schema' => __DIR__ . '/../data/schema/imagecaption-rule-schema.v1.json',
@@ -64,7 +58,7 @@ class Hooks {
 	 *
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ImageBeforeProduceHTML
 	 *
-	 * @param DummyLinker &$linker
+	 * @param null &$dummy
 	 * @param Title &$title
 	 * @param &$file
 	 * @param array &$frameParams
@@ -78,7 +72,6 @@ class Hooks {
 	 * @return bool
 	 */
 	public static function onImageBeforeProduceHTML( &$dummy, &$title, &$file, &$frameParams, &$handlerParams, &$time, &$res, $parser, &$query, &$widthOption ) {
-
 		$applicationFactory = ApplicationFactory::getInstance();
 		$schemaFactory = $applicationFactory->singleton( 'SchemaFactory' );
 

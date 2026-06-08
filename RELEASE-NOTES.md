@@ -2,7 +2,7 @@ This file contains the RELEASE-NOTES of the **Semantic Image Caption** (a.k.a. S
 
 ### 2.0.0
 
-Released on TBD.
+Released on June 8, 2026.
 
 - Raised the minimum supported Semantic MediaWiki version to 7.0 and MediaWiki to 1.43.
 - Updated the internal usage of Semantic MediaWiki data-item classes to their Semantic MediaWiki 7.0 namespaced names.

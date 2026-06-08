@@ -10,7 +10,7 @@ Semantic Image Caption (a.k.a. SIC) is a [Semantic MediaWiki][smw] extension to 
 
 - PHP 8.1 or later
 - MediaWiki 1.43 or later
-- Semantic MediaWiki 6.0 or later
+- Semantic MediaWiki 7.0 or later
 
 ## Installation
 
@@ -25,7 +25,7 @@ Change to the base directory of your MediaWiki installation. If you do not have 
 ```json
 {
 	"require": {
-		"mediawiki/semantic-image-caption": "~1.0"
+		"mediawiki/semantic-image-caption": "~2.0"
 	}
 }
 ```
@@ -33,7 +33,7 @@ Change to the base directory of your MediaWiki installation. If you do not have 
 If you already have a "composer.local.json" file add the following line to the end of the "require"
 section in your file:
 
-    "mediawiki/semantic-image-caption": "~1.0"
+    "mediawiki/semantic-image-caption": "~2.0"
 
 Remember to add a comma to the end of the preceding line in this section.
 

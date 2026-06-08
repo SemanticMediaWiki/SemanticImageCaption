@@ -1,5 +1,11 @@
 This file contains the RELEASE-NOTES of the **Semantic Image Caption** (a.k.a. SIC) extension.
 
+### 2.0.1
+
+Released on June 8, 2026.
+
+- Updated the `composer/installers` constraint to `^2|^1.0.1`.
+
 ### 2.0.0
 
 Released on June 8, 2026.

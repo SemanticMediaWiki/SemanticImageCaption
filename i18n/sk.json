@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wizzard"
+		]
+	},
+	"semantic-imagecaption-desc": "Rozšírenie Semantic MediaWiki na podporu generovania popisov obrázkov z anotácií.",
+	"semantic-imagecaption-rule-schema-description": "Tento typ schémy podporuje definovanie pravidiel, ako sa popisy obrázkov získavajú a transformujú, a poskytuje ho rozšírenie [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Image_Caption Semantic Image Caption].",
+	"semantic-imagecaption-figures": "<b>Obrázok $1:</b>"
+}
